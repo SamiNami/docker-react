@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t samiperalahti/docker-react -f dockerfile.dev .
+
+script:
+    - docker run samiperalahti/docker-react npm run test -- --coverage
