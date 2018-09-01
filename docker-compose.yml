@@ -9,3 +9,11 @@ services:
         volumes:
             - /app/node_modules # map node_modules as is
             - .:/app # map everthing else to /app
+    test:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes:
+            - /app/node_modules
+            - .:/app
+        command: ["npm", "run", "test"] # will run another command 
